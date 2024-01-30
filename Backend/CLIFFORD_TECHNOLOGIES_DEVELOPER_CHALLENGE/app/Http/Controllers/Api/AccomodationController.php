@@ -1,4 +1,3 @@
-<?php
 // AccommodationController.php
 public function index() { ... }
 public function show($id) { ... }
