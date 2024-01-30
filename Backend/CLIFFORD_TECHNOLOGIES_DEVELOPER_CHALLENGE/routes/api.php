@@ -3,6 +3,16 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+// Accommodation routes
+Route::apiResource('accommodations', 'AccommodationController');
+
+// TravelAgent routes
+Route::apiResource('travel-agents', 'TravelAgentController');
+
+// Contract routes
+Route::apiResource('contracts', 'ContractController');
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
