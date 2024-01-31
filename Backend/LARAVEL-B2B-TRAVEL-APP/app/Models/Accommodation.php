@@ -9,7 +9,16 @@ class Accommodation extends Model
 {
     use HasFactory;
 
-    public function contracts() {
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'location',
+        // Add more fields as needed
+    ];
+
+    public function contracts()
+    {
         return $this->hasMany(Contract::class);
     }
 }

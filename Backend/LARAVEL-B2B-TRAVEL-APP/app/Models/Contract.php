@@ -9,12 +9,21 @@ class Contract extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'start_date',
+        'end_date',
+        'amount',
+        'terms',
+        // Add more fields as needed
+    ];
 
-    public function accommodation() {
+    public function accommodation()
+    {
         return $this->belongsTo(Accommodation::class);
     }
 
-    public function travelAgent() {
+    public function travelAgent()
+    {
         return $this->belongsTo(TravelAgent::class);
     }
 }

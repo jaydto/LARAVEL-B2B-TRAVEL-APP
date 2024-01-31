@@ -2,16 +2,20 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AccommodationsController;
+use App\Http\Controllers\Api\ContractsController;
+
+// use app\Http\Controllers\;
 
 
 // Accommodation routes
-Route::apiResource('accommodations', 'AccommodationController');
+Route::apiResource('accommodations', AccommodationsController::class);
 
 // TravelAgent routes
-Route::apiResource('travel-agents', 'TravelAgentController');
+// Route::apiResource('travel-agents', TravelAgentController::class);
 
 // Contract routes
-Route::apiResource('contracts', 'ContractController');
+Route::apiResource('contracts', ContractsController::class);
 
 /*
 |--------------------------------------------------------------------------
