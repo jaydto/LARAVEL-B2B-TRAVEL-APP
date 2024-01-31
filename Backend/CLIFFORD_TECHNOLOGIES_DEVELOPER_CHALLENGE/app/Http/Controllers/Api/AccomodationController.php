@@ -1,8 +1,17 @@
-// AccommodationController.php
-public function index() { ... }
-public function show($id) { ... }
-public function store(Request $request) { ... }
-public function update(Request $request, $id) { ... }
-public function destroy($id) { ... }
+<?php
+// app/Http/Controllers/AccommodationController.php
 
-// Similar methods in TravelAgentController and ContractController
+namespace App\Http\Controllers;
+
+use App\Models\Accommodation;
+use Illuminate\Http\Request;
+
+class AccommodationController extends Controller
+{
+    public function index()
+    {
+        $accommodations = Accommodation::all();
+
+        return response()->json($accommodations);
+    }
+}
