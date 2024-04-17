@@ -4,16 +4,20 @@
 |        | GET|HEAD  | /                                  |                                    | Closure                                                     | web                                      |
 |        | GET|HEAD  | api/accommodations                 | accommodations.index               | App\Http\Controllers\Api\AccommodationsController@index     | api                                      |
 |        | POST      | api/accommodations                 | accommodations.store               | App\Http\Controllers\Api\AccommodationsController@store     | api                                      |
-|        | DELETE    | api/accommodations/{accommodation} | accommodations.destroy             | App\Http\Controllers\Api\AccommodationsController@destroy   | api                                      |
 |        | GET|HEAD  | api/accommodations/{accommodation} | accommodations.show                | App\Http\Controllers\Api\AccommodationsController@show      | api                                      |
+|        | DELETE    | api/accommodations/{accommodation} | accommodations.destroy             | App\Http\Controllers\Api\AccommodationsController@destroy   | api                                      |
 |        | PUT|PATCH | api/accommodations/{accommodation} | accommodations.update              | App\Http\Controllers\Api\AccommodationsController@update    | api                                      |
-|        | GET|HEAD  | api/contracts                      | contracts.index                    | App\Http\Controllers\Api\ContractsController@index          | api                                      |
 |        | POST      | api/contracts                      | contracts.store                    | App\Http\Controllers\Api\ContractsController@store          | api                                      |
+|        | GET|HEAD  | api/contracts                      | contracts.index                    | App\Http\Controllers\Api\ContractsController@index          | api                                      |
 |        | GET|HEAD  | api/contracts/{contract}           | contracts.show                     | App\Http\Controllers\Api\ContractsController@show           | api                                      |
 |        | PUT|PATCH | api/contracts/{contract}           | contracts.update                   | App\Http\Controllers\Api\ContractsController@update         | api                                      |
 |        | DELETE    | api/contracts/{contract}           | contracts.destroy                  | App\Http\Controllers\Api\ContractsController@destroy        | api                                      |
 |        | GET|HEAD  | api/documentation                  | l5-swagger.default.api             | L5Swagger\Http\Controllers\SwaggerController@api            | L5Swagger\Http\Middleware\Config         |
+|        | POST      | api/login                          |                                    | App\Http\Controllers\Api\UserAuthController@login           | api                                      |
+|        | POST      | api/logout                         |                                    | App\Http\Controllers\Api\UserAuthController@logout          | api                                      |
+|        |           |                                    |                                    |                                                             | App\Http\Middleware\Authenticate:sanctum |
 |        | GET|HEAD  | api/oauth2-callback                | l5-swagger.default.oauth2_callback | L5Swagger\Http\Controllers\SwaggerController@oauth2Callback | L5Swagger\Http\Middleware\Config         |
+|        | POST      | api/register                       |                                    | App\Http\Controllers\Api\UserAuthController@register        | api                                      |
 |        | GET|HEAD  | api/user                           |                                    | Closure                                                     | api                                      |
 |        |           |                                    |                                    |                                                             | App\Http\Middleware\Authenticate:sanctum |
 |        | GET|HEAD  | docs/asset/{asset}                 | l5-swagger.default.asset           | L5Swagger\Http\Controllers\SwaggerAssetController@index     | L5Swagger\Http\Middleware\Config         |

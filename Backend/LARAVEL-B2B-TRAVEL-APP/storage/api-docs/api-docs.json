@@ -4,7 +4,7 @@
         "title": "Laravel B2B Travel Application Documentations",
         "description": "An API of cool stuffs",
         "contact": {
-            "name": "Quickasava",
+            "name": "Travel App",
             "url": "https://travel_app",
             "email": "johnckaris@gmail.com"
         },
@@ -16,11 +16,11 @@
             "description": "Local server"
         },
         {
-            "url": "http://test.quicksava.com/quicksava_test_api",
+            "url": "http://test.travel.com/quicksava_test_api",
             "description": "Staging server"
         },
         {
-            "url": "https://api.example.com",
+            "url": "https://api.travel.com",
             "description": "Production server"
         }
     ],
@@ -66,12 +66,143 @@
                     }
                 }
             }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Authentications"
+                ],
+                "summary": "Register a new user",
+                "operationId": "73fd9b61dff4256cc0ee710de66723d9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User registered successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Authentications"
+                ],
+                "summary": "Authenticate user and generate access token",
+                "operationId": "bb5bdca9f30cb60a33c1ae936a833da2",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid credentials"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Authentications"
+                ],
+                "summary": "Revoke user's access tokens and log them out",
+                "operationId": "618f033d5ecfff68b1d0880a5f399d7b",
+                "responses": {
+                    "200": {
+                        "description": "Logout successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
         }
     },
     "tags": [
         {
             "name": "Accommodations",
             "description": "Operations related to user authentication"
+        },
+        {
+            "name": "Authentications",
+            "description": "Endpoints for user registration, login, and logout"
         }
     ]
 }

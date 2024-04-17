@@ -13,10 +13,16 @@ use Illuminate\Routing\Controller as BaseController;
  *    description="An API of cool stuffs",
  *    version="1.0.0",
  *      @OA\Contact(
- *         name="Quickasava",
+ *         name="Travel App",
  *         email="johnckaris@gmail.com",
  *          url="https://travel_app"
  *     ),
+ * )
+ *  @OA\SecurityScheme(
+ *     type="http",
+ *     securityScheme="bearerAuth",
+ *     scheme="bearer",
+ *     bearerFormat="JWT"
  * )
 
  * @OA\Server(
@@ -25,11 +31,11 @@ use Illuminate\Routing\Controller as BaseController;
  * ),
  *  @OA\Server(
  *     description="Staging server",
- *     url="http://test.quicksava.com/quicksava_test_api"
+ *     url="http://test.travel.com/quicksava_test_api"
  * ),
  * @OA\Server(
  *     description="Production server",
- *     url="https://api.example.com"
+ *     url="https://api.travel.com"
  * ),
  */
 class Controller extends BaseController
